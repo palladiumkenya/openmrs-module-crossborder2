@@ -1,25 +1,8 @@
 DROP PROCEDURE IF EXISTS create_crossborder_etl_tables $$
 CREATE PROCEDURE create_crossborder_etl_tables()
 BEGIN
-    DECLARE script_id INT(11);
-
-    DROP TABLE IF EXISTS kenyaemr_etl.etl_script_status;
-    CREATE TABLE kenyaemr_etl.etl_script_status
-    (
-        id          INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-        script_name VARCHAR(50)  DEFAULT null,
-        start_time  DATETIME     DEFAULT NULL,
-        stop_time   DATETIME     DEFAULT NULL,
-        error       VARCHAR(255) DEFAULT NULL
-    );
-
--- Log start time
-    INSERT INTO kenyaemr_etl.etl_script_status(script_name, start_time) VALUES ('initial_creation_of_tables', NOW());
-    SET script_id = LAST_INSERT_ID();
-
     DROP TABLE IF EXISTS kenyaemr_etl.etl_crossborder_referral;
     DROP TABLE IF EXISTS kenyaemr_etl.etl_crossborder_screening;
-
 
 -- Create table etl_clinical_referral --
 
@@ -89,7 +72,4 @@ SELECT "Successfully created etl_crossborder_referral table";
         INDEX (visit_date)
     );
     SELECT "Successfully created etl_crossborder_screening table";
-
-    UPDATE kenyaemr_etl.etl_script_status SET stop_time=NOW() where id = script_id;
-
 END $$

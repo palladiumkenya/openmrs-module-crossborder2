@@ -124,16 +124,8 @@ END $$
 DROP PROCEDURE IF EXISTS sp_first_time_crossborder_setup $$
 CREATE PROCEDURE sp_first_time_crossborder_setup()
 BEGIN
-DECLARE populate_script_id INT(11);
-SELECT "Beginning first time setup", CONCAT("Time: ", NOW());
-INSERT INTO kenyaemr_etl.etl_script_status(script_name, start_time) VALUES('initial_population_of_tables', NOW());
-SET populate_script_id = LAST_INSERT_ID();
 
 CALL sp_populate_etl_crossborder_screening();
 CALL sp_populate_etl_crossborder_referral();
 
-
-UPDATE kenyaemr_etl.etl_script_status SET stop_time=NOW() where id= populate_script_id;
-
-SELECT "Completed first time setup", CONCAT("Time: ", NOW());
 END $$
