@@ -168,6 +168,7 @@ public class CbPatientService {
 		return parser.encodeResourceToString(patient);
 	}
 	
+	//TODO: create an endpoint for searching
 	public List<Patient> searchPatient(HashMap<String, String> searchParams) {
 		// TODO: Breakdown the search params
 		String query = "";
@@ -181,7 +182,7 @@ public class CbPatientService {
 		}
 		
 		if (searchParams.containsKey("nationalId")) {
-			query += "&identifier=" + urlEncode(NATIONAL_ID_SYSTEM_URN + "|" + searchParams.get("clinicNo"));
+			query += "&identifier=" + urlEncode(NATIONAL_ID_SYSTEM_URN + "|" + searchParams.get("nationalId"));
 		}
 		
 		if (searchParams.containsKey("name")) {
