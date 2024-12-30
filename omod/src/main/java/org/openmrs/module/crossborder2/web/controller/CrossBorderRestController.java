@@ -69,9 +69,9 @@ public class CrossBorderRestController extends BaseRestController {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/createpatient")
 	@ResponseBody
-	public Patient createPatient(HttpServletRequest request,  @SpringBean CbPatientService cbPatientService,
+	public Patient createPatient(HttpServletRequest request, @SpringBean CbPatientService cbPatientService,
 	        @RequestParam(value = "patient", required = true) Patient patient) {
-
+		
 		if (patient == null) {
 			return null;
 		}
