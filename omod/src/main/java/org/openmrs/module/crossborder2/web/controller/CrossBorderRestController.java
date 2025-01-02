@@ -86,7 +86,7 @@ public class CrossBorderRestController extends BaseRestController {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/cbencounter")
 	@ResponseBody
-	public ArrayList<SimpleObject> cdEncounters(HttpServletRequest request,
+	public ArrayList<SimpleObject> cbEncounters(HttpServletRequest request,
 	        @RequestParam(value = "fromdate", required = false) String fromDate,
 	        @RequestParam(value = "todate", required = false) String toDate) {
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
