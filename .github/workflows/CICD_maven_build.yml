@@ -1,7 +1,7 @@
-name: deploy to prod 8600
+name: deployments to servers
 on:
   push:
-    branches: [ master, 2.x ]
+    branches: [ main, 2.x ]
 jobs:
   build:
     name: deploying to 2.x instance
@@ -38,7 +38,7 @@ jobs:
 
   dev_server_deployment:
     name: deploying to 3.x dev instance
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
     - name: executing remote connection
@@ -56,7 +56,7 @@ jobs:
           sudo chown -R cicd:cicd openmrs-module-crossborder2
           git config --global --add safe.directory /apps/githubworkflows/kenyaemr-modules/openmrs-module-crossborder2
           cd /apps/githubworkflows/kenyaemr-modules/openmrs-module-crossborder2
-          git clone -b master https://github.com/palladiumkenya/openmrs-module-crossborder2.git .
+          git clone -b main https://github.com/palladiumkenya/openmrs-module-crossborder2.git .
           git status
           mvn license:format
           sudo mvn clean install -DskipTests
