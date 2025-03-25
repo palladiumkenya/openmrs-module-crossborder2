@@ -60,8 +60,8 @@ jobs:
           git status
           mvn license:format
           sudo mvn clean install -DskipTests
-          sudo rm -rf /var/lib/OpenMRS/modules/kenyaemr-*.omod
-          sudo cp -r /apps/githubworkflows/kenyaemr-modules/openmrs-module-crossborder2/omod/target/kenyaemr-*.omod /var/lib/OpenMRS/modules/
+          sudo rm -rf /var/lib/OpenMRS/modules/crossborder2*.omod
+          sudo cp /apps/githubworkflows/kenyaemr-modules/openmrs-module-crossborder2/omod/target/crossborder2*.omod /var/lib/OpenMRS/modules/
           sudo chown -R tomcat:tomcat /var/lib/OpenMRS/modules/
           sudo chmod +r /var/lib/OpenMRS/modules/*.omod
           sudo chmod 755 /var/lib/OpenMRS/modules/*.omod
