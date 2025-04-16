@@ -87,12 +87,7 @@ public class CrossBorderIndicators {
 		    map(crossBorderCohortDefinition.getCrossBorderHiVPositiveMothersTotal(),
 		        "startDate=${startDate},endDate=${endDate}"));
 	}
-	
-	public CohortIndicator getCrossBorderMaternalHaarTTotal() {
-		return cohortIndicator("Maternal HAART Total",
-		    map(crossBorderCohortDefinition.getCrossBorderMaternalHaarTTotal(), "startDate=${startDate},endDate=${endDate}"));
-	}
-	
+
 	public CohortIndicator getCrossBorderPatientsOnProphylaxis() {
 		return cohortIndicator(
 		    "Total ARV Prophylaxis Total",

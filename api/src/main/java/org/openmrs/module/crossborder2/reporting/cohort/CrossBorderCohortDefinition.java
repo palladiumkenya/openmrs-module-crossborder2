@@ -180,19 +180,7 @@ public class CrossBorderCohortDefinition {
 		cd.setCompositionString("mothersPositiveTotal AND crossBorderPatient");
 		return cd;
 	}
-	
-	public CohortDefinition getCrossBorderMaternalHaarTTotal() {
-		CompositionCohortDefinition cd = new CompositionCohortDefinition();
-		cd.addParameter(new Parameter("startDate", "Start Date", Date.class));
-		cd.addParameter(new Parameter("endDate", "End Date", Date.class));
-		cd.addSearch("totalMaternalHAART", ReportUtils.map(etlMoh731GreenCardCohortLibrary.totalMaternalHAART(),
-		    "startDate=${startDate},endDate=${endDate}"));
-		cd.addSearch("crossBorderPatient",
-		    ReportUtils.map(getCrossBorderPatients(), "startDate=${startDate},endDate=${endDate}"));
-		cd.setCompositionString("totalMaternalHAART AND crossBorderPatient");
-		return cd;
-	}
-	
+
 	public CohortDefinition getCrossBorderPatientsOnProphylaxis() {
 		CompositionCohortDefinition cd = new CompositionCohortDefinition();
 		cd.addParameter(new Parameter("startDate", "Start Date", Date.class));
