@@ -87,7 +87,7 @@ public class CrossBorderIndicators {
 		    map(crossBorderCohortDefinition.getCrossBorderHiVPositiveMothersTotal(),
 		        "startDate=${startDate},endDate=${endDate}"));
 	}
-
+	
 	public CohortIndicator getCrossBorderPatientsOnProphylaxis() {
 		return cohortIndicator(
 		    "Total ARV Prophylaxis Total",

@@ -1,16 +1,17 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.openmrs.maven.parents</groupId>
-        <artifactId>maven-parent-openmrs-module</artifactId>
-        <version>1.1.0</version>
-    </parent>
+	<parent>
+		<groupId>org.openmrs.maven.parents</groupId>
+		<artifactId>maven-parent-openmrs-module</artifactId>
+		<version>1.1.0</version>
+	</parent>
 
 	<groupId>org.openmrs.module</groupId>
 	<artifactId>crossborder2</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Cross Border Module</name>
 	<description>Module designed to implement Cross Border Functionality</description>
@@ -181,6 +182,19 @@
 			<layout>default</layout>
 			<url>https://repo1.maven.org/maven2</url>
 		</repository>
+		<repository>
+			<id>mks-repo</id>
+			<name>Mekom Solutions Nexus Releases</name>
+			<url>https://nexus.mekomsolutions.net/repository/maven-releases</url>
+		</repository>
+		<repository>
+			<id>mks-repo-snapshots</id>
+			<name>Mekom Solutions Nexus Snapshots</name>
+			<url>https://nexus.mekomsolutions.net/repository/maven-snapshots</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
@@ -198,7 +212,7 @@
 		<appframeworkVersion>2.13.0</appframeworkVersion>
 		<calculationVersion>1.2</calculationVersion>
 		<htmlformentryVersion>3.9.2</htmlformentryVersion>
-        <htmlwidgetsVersion>1.6.6</htmlwidgetsVersion>
+		<htmlwidgetsVersion>1.6.6</htmlwidgetsVersion>
 		<idgenVersion>4.5.0</idgenVersion>
 		<metadatadeployVersion>1.11.0</metadatadeployVersion>
 		<metadatasharingVersion>1.5.0</metadatasharingVersion>
@@ -207,12 +221,25 @@
 		<uiframeworkVersion>3.15.0</uiframeworkVersion>
 		<kenyacoreVersion>3.0.1</kenyacoreVersion>
 		<kenyauiVersion>3.0.0</kenyauiVersion>
-    <kenyaemrVersion>18.7.2-SNAPSHOT</kenyaemrVersion>
-    <jodaTimeVersion>2.9.1</jodaTimeVersion>
+		<kenyaemrVersion>19.2.0-SNAPSHOT</kenyaemrVersion>
+		<jodaTimeVersion>2.9.1</jodaTimeVersion>
 		<webservices.restVersion>2.26.0</webservices.restVersion>
 		<logicVersion>0.5.2</logicVersion>
 		<fhir2Version>1.9.0</fhir2Version>
 		<hapiFhirVersion>5.6.971</hapiFhirVersion>
 		<eventVersion>2.5</eventVersion>
 	</properties>
+	<distributionManagement>
+		<repository>
+			<id>mks-repo</id>
+			<name>Mekom Solutions Nexus Releases</name>
+			<url>https://nexus.mekomsolutions.net/repository/maven-releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>mks-repo-snapshots</id>
+			<name>Mekom Solutions Nexus Snapshots</name>
+			<url>https://nexus.mekomsolutions.net/repository/maven-snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 </project>
