@@ -180,7 +180,7 @@ public class CrossBorderCohortDefinition {
 		cd.setCompositionString("mothersPositiveTotal AND crossBorderPatient");
 		return cd;
 	}
-
+	
 	public CohortDefinition getCrossBorderPatientsOnProphylaxis() {
 		CompositionCohortDefinition cd = new CompositionCohortDefinition();
 		cd.addParameter(new Parameter("startDate", "Start Date", Date.class));
