@@ -41,7 +41,8 @@ public class Http {
 	
 	public String get(String endpoint, String query) {
 		HttpClient httpClient = getHttpClient();
-		HttpGet request = new HttpGet(URL + endpoint + "?" + query);
+		String baseUrl = URL.endsWith("/") ? URL : URL + "/";
+		HttpGet request = new HttpGet(baseUrl + endpoint + "?" + query);
 		request.setHeader("Accept", "application/fhir+json");
 		HttpResponse response;
 		String responseBody;
