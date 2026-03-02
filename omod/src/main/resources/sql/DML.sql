@@ -1,3 +1,4 @@
+DELIMITER $$
 DROP PROCEDURE IF EXISTS get_etl_schema $$
 CREATE PROCEDURE get_etl_schema(OUT etl_schema VARCHAR(200))
 BEGIN
@@ -64,7 +65,7 @@ SET @insert_sql = CONCAT('
         from encounter e
                  inner join
              (
-                 select encounter_type_id, uuid, name from encounter_type where uuid='6536A8A3-7B77-414D-A0F0-E08A7178FF0F'
+                 select encounter_type_id, uuid, name from encounter_type where uuid=''6536A8A3-7B77-414D-A0F0-E08A7178FF0F''
              ) et on et.encounter_type_id=e.encounter_type
                  inner join person p on p.person_id=e.patient_id and p.voided=0
                  left outer join obs o on o.encounter_id=e.encounter_id and o.voided=0
@@ -140,7 +141,7 @@ SET @insert_sql = CONCAT('
         from encounter e
                  inner join
              (
-                 select encounter_type_id, uuid, name from encounter_type where uuid='5C6DA02B-51E8-4B3D-BB67-BE8F75C4CCE1'
+                 select encounter_type_id, uuid, name from encounter_type where uuid=''5C6DA02B-51E8-4B3D-BB67-BE8F75C4CCE1''
              ) et on et.encounter_type_id=e.encounter_type
                  inner join person p on p.person_id=e.patient_id and p.voided=0
                  left outer join obs o on o.encounter_id=e.encounter_id and o.voided=0
@@ -173,5 +174,4 @@ CALL sp_populate_etl_crossborder_referral();
 
 SELECT CONCAT("Completed first-time crossborder setup for schema: ", etl_schema) AS message;
 END $$
-
 DELIMITER ;
